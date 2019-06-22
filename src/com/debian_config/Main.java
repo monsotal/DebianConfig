@@ -8,7 +8,7 @@ public class Main {
 		
 		
 		
-		System.out.println("Welcome To Debian Config tool");
+		System.out.println("Welcome To Debian Config tool!");
 
 	}
 
