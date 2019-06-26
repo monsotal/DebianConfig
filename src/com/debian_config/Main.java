@@ -32,14 +32,27 @@ public class Main {
 	    
 	    System.out.println("Pick your option:");
         int num = userinput.nextInt();
+        System.out.println(num);
         
 // Closing Scanner after the use   
         
         userinput.close();
         
-        System.out.println("You picked:"+num);
-	    
-
+        
+        switch (num)
+        {
+             case 1:
+            	 System.out.println("You picked Option 1");
+            	 break;
+            	 
+             case 2:
+            	 System.out.println("You picked Option 2");
+            	 break;
+            	 
+             default:
+            	 System.out.println("Invalid choice");
+        }
+        
 
 	}
 
