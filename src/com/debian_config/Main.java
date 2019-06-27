@@ -1,5 +1,6 @@
 package com.debian_config;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -31,6 +32,10 @@ public class Main {
 // This method reads the number provided using keyboard
 	    
 	    System.out.println("Pick your option:");
+	    
+try {
+	    	
+
         int num = userinput.nextInt();
         System.out.println(num);
         
@@ -50,9 +55,21 @@ public class Main {
             	 break;
             	 
              default:
-            	 System.out.println("Invalid choice");
+            	 System.out.println("Option doesn't Exist");
         }
+	}
         
+catch(InputMismatchException  e){
+        	
+        	System.out.println("Input Error occured");
+        	
+}
+
+catch(Exception e) {
+	
+	System.out.println("An unknown error occured");
+	e.printStackTrace();
+}
 
 	}
 
