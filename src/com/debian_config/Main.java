@@ -19,23 +19,31 @@ public class Main {
 
 
 	    // Display menu graphics
-	    System.out.println("============================");
-	    System.out.println("|   MENU SELECTION DEMO    |");
-	    System.out.println("============================");
-	    System.out.println("| Options:                 |");
-	    System.out.println("|        1. Option 1       |");
-	    System.out.println("|        2. Option 2       |");
-	    System.out.println("|        3. Exit           |");
-	    System.out.println("============================");
+	    System.out.println("========================================================================");
+	    System.out.println("|                   Debian config tool Menu                            |");
+	    System.out.println("========================================================================");
+	    System.out.println("|                         Options:                                     |");
+	    System.out.println("|1.set an IP address to an interface                                   |");
+	    System.out.println("|2. Display / Add / Remove Routes                                      |");
+	    System.out.println("|3. Change machine hostname                                            |");
+	    System.out.println("|4. Set proxy                                                          |");
+	    System.out.println("|5. Updates the system using apt-get update..                          |");
+	    System.out.println("|6. Install packages (nano/apache/java/python/java/jenkins/tcpdump)    |");
+	    System.out.println("|7. Add DNS server to resolv.conf                                      |");
+	    System.out.println("|8. Run a complete machine config                                      |");
+	    System.out.println("|9. Exit                                                               |");
+		System.out.println("|======================================================================|"); 
 	    
 	    
-// This method reads the number provided using keyboard
+
 	    
-	    System.out.println("Pick your option:");
+//This try block check statements that may cause an exception
 	    
 try {
 	    	
-
+// This method reads the number provided using keyboard
+    
+    	System.out.println("Pick your option:");
         int num = userinput.nextInt();
         System.out.println(num);
         
@@ -69,7 +77,7 @@ catch(Exception e) {
 	
 	System.out.println("An unknown error occured");
 	e.printStackTrace();
-}
+		}
 
 	}
 
