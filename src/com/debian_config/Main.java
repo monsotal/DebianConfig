@@ -45,7 +45,7 @@ try {
 // This method reads the number provided using keyboard
     
     	System.out.println("Pick your option:");
-        int num = userinput.nextInt();
+        String num = userinput.nextLine();
         System.out.println(num);
         
 // Closing Scanner after the use   
@@ -55,11 +55,11 @@ try {
         
         switch (num)
         {
-             case 1:
+             case "1":
             	 System.out.println("You picked Option 1");
             	 break;
             	 
-             case 2:
+             case "2":
             	 System.out.println("You picked Option 2");
             	 break;
             	 
