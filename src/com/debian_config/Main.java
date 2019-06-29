@@ -1,6 +1,9 @@
 package com.debian_config;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -15,10 +18,10 @@ public class Main {
 //This reads the input provided by user
 //using keyboard
 		
-		Scanner userinput = new Scanner(System.in);
-
+		
 
 	    // Display menu graphics
+		
 	    System.out.println("========================================================================");
 	    System.out.println("|                   Debian config tool Menu                            |");
 	    System.out.println("========================================================================");
@@ -33,53 +36,108 @@ public class Main {
 	    System.out.println("|8. Run a complete machine config                                      |");
 	    System.out.println("|9. Exit                                                               |");
 		System.out.println("|======================================================================|"); 
-	    
-	    
-		
 
-	    
-//This try block check statements that may cause an exception
-	    
-try {
-	    	
-// This method reads the number provided using keyboard
-    
-    	System.out.println("Pick your option:");
-        String num = userinput.nextLine();
-        System.out.println(num);
+		//Calls getsUserInput function
+		
+		getsUserInput();
+		
         
-// Closing Scanner after the use   
-        
-        userinput.close();
-        
-        
-        switch (num)
-        {
-             case "1":
+	}
+     
+
+
+	public static void getsUserInput() {
+
+		//Create an Integer ArrayList with 9 items from 1 to 9
+		
+		 List<Integer> numlist = new ArrayList<Integer>();
+		 numlist.addAll(Arrays.asList(1,2,3,4,5,6,7,8,9));
+
+		 
+		 //Getting Integer value from user
+		 
+		 try {
+			 System.out.println("Pick your option:");
+			 Scanner userinput = new Scanner(System.in);
+			 int num = userinput.nextInt();
+
+		
+			 boolean listcontainsnum = numlist.contains(num);
+
+		
+		//Checking if input appears in list, then use it in a switch-case
+	
+			 if(listcontainsnum) {
+				
+				 switch (num)
+				 {
+             case 1:
             	 System.out.println("You picked Option 1");
             	 break;
             	 
-             case "2":
+             case 2:
             	 System.out.println("You picked Option 2");
+            	 break;
+        	 
+             case 3:
+            	 System.out.println("You picked Option 3");
+            	 break;
+        	 
+             case 4:
+            	 System.out.println("You picked Option 4");
+            	 break;
+        	 
+             case 5:
+            	 System.out.println("You picked Option 5");
+            	 break;
+            	 
+             case 6:
+            	 System.out.println("You picked Option 6");
+            	 break;
+        	 
+             case 7:
+            	 System.out.println("You picked Option 7");
+            	 break;
+            	 
+             case 8:
+            	 System.out.println("You picked Option 8");
+            	 break;
+        	 
+             case 9:
+            	 System.out.println("You picked Option 9");
             	 break;
             	 
              default:
             	 System.out.println("Option doesn't Exist");
-        }
-	}
-        
-catch(InputMismatchException  e){
-        	
-        	System.out.println("Input Error occured");
-        	
-}
 
-catch(Exception e) {
+				 }
+		
+
+			 }
+		
+	//Use recursion if list doesn't contain number
 	
-	System.out.println("An unknown error occured");
-	e.printStackTrace();
-		}
+			 else {
+				 System.out.println("Invalid selection:");
+				 getsUserInput();
 
+	
+			 }
+		 }
+	
+
+		 catch(Exception e) {
+
+			 System.out.println("Invalid Characters typed");
+			 getsUserInput();
+
+
+		 }
+
+				
 	}
 
-}
+		
+	}
+
+
