@@ -45,7 +45,6 @@ public class Main {
 	}
      
 
-
 	public static void getsUserInput() {
 
 		//Create an Integer ArrayList with 9 items from 1 to 9
