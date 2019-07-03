@@ -135,6 +135,12 @@ public class Main {
 
 				
 	}
+	
+	
+	public static void configureDns() {
+		
+		System.out.println("This is the DNS config method");
+	}
 
 	}
 
