@@ -1,5 +1,6 @@
 package com.debian_config;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -96,6 +97,7 @@ public class Main {
         	 
              case 7:
             	 System.out.println("You picked Option 7");
+            	 configureDns();
             	 break;
             	 
              case 8:
@@ -140,6 +142,15 @@ public class Main {
 	public static void configureDns() {
 		
 		System.out.println("This is the DNS config method!!!");
+		
+		try {
+			FileWriter resolvfile = new FileWriter("/etc/resolv.conf");
+		}
+		
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
 	}
 
 	}
