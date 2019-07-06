@@ -96,7 +96,6 @@ public class Main {
             	 break;
         	 
              case 7:
-            	 System.out.println("You picked Option 7");
             	 configureDns();
             	 break;
             	 
@@ -141,10 +140,18 @@ public class Main {
 	
 	public static void configureDns() {
 		
-		System.out.println("This is the DNS config method!!!");
-		
+
 		try {
+			
+			System.out.println("Please type a DNS server for your system:");
+			Scanner dnsinput = new Scanner(System.in);
+			String dnsserver = dnsinput.nextLine();
+			System.out.println(dnsserver);
+			dnsinput.close();
+			
 			FileWriter resolvfile = new FileWriter("/etc/resolv.conf");
+			resolvfile.write("nameserver " + dnsserver);
+			resolvfile.close();
 		}
 		
 		catch(Exception e){
