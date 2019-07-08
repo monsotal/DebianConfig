@@ -167,7 +167,7 @@ public class Main {
 
 			if(validDns) {
 				
-				FileWriter resolvfile = new FileWriter("C:\\Users\\Monso\\Downloads\\111\\resolv.conf");
+				FileWriter resolvfile = new FileWriter("/etc/resolv.conf");
 				resolvfile.write("nameserver " + dnsserver);
 				resolvfile.close();
 				dnsinput.close();
