@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -138,20 +139,52 @@ public class Main {
 	}
 	
 	
+	
+	
+	
+	
+	
 	public static void configureDns() {
 		
 
 		try {
 			
+			//Gets DNS server address from the user
+			
 			System.out.println("Please type a DNS server for your system:");
 			Scanner dnsinput = new Scanner(System.in);
 			String dnsserver = dnsinput.nextLine();
-			System.out.println(dnsserver);
-			dnsinput.close();
+
 			
-			FileWriter resolvfile = new FileWriter("/etc/resolv.conf");
-			resolvfile.write("nameserver " + dnsserver);
-			resolvfile.close();
+			//Define regular expression pattern for a valid IP address
+			
+			String validdnsinput = "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$";
+			boolean validDns = Pattern.matches(validdnsinput, dnsserver);
+			
+			
+			
+			//Checks if boolean variable matches the regular expression pattern, then it edits resolv.conf file
+
+			if(validDns) {
+				
+				FileWriter resolvfile = new FileWriter("C:\\Users\\Monso\\Downloads\\111\\resolv.conf");
+				resolvfile.write("nameserver " + dnsserver);
+				resolvfile.close();
+				dnsinput.close();
+				System.out.println("The DNS server " + dnsserver + " has been successfully configured as your primary DNS server");
+			}
+			
+			
+			
+			//if boolean variable does not match the regular expression pattern, run recursion
+			
+			else {
+				System.out.println("Invalid DNS server typed");
+				configureDns();
+				
+			}
+			
+			
 		}
 		
 		catch(Exception e){
