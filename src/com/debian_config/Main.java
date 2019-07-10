@@ -3,7 +3,6 @@ package com.debian_config;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -98,6 +97,7 @@ public class Main {
         	 
              case 7:
             	 configureDns();
+            	 userinput.close();
             	 break;
             	 
              case 8:
