@@ -15,6 +15,7 @@ public class Main {
 		
 		
 		System.out.println("Welcome To Debian_Config tool!");
+		System.out.println("Welcome To Debian_Config tool!");
 		
 //This reads the input provided by user
 //using keyboard
