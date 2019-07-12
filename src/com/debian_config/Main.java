@@ -14,7 +14,7 @@ public class Main {
 		
 		
 		
-		System.out.println("Welcome To Debian_Config tool!");
+		System.out.println("--Welcome To Debian_Config tool--");
 		
 //This reads the input provided by user
 //using keyboard
@@ -179,7 +179,7 @@ public class Main {
 			//if boolean variable does not match the regular expression pattern, run recursion
 			
 			else {
-				System.out.println("Invalid DNS server typed!");
+				System.out.println("Invalid DNS server typed!!!");
 				configureDns();
 				
 			}
