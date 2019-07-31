@@ -84,7 +84,7 @@ public class Main {
             	 break;
         	 
              case 4:
-            	 System.out.println("You picked Option 4");
+            	 configureProxy();
             	 break;
         	 
              case 5:
@@ -192,7 +192,46 @@ public class Main {
 		}
 		
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	public static void configureProxy() {
+		
+		try {
+			
+//Gets Proxy server address from the user
+			
+			System.out.println("Please type a Proxy server address for your system,"
+					+          "in the following format:\n"
+					+ "http://<IP>:<port>\n"
+					+ "e.g : http://213.54.21.9:8080");
+			
+			Scanner proxyinput = new Scanner(System.in);
+			String proxyserver = proxyinput.nextLine();
+			
+			
+//Edits apt.conf file with the user input
+			
+			FileWriter proxyfile = new FileWriter("/etc/apt/apt.conf");
+			proxyfile.write("Acquire::http::Proxy \""+proxyserver+"\";");
+			proxyfile.close();
+			proxyinput.close();
+			System.out.println("The Proxy server " + proxyserver + " has been successfully configured for your system");
+			
+		}
+		
+		catch(Exception e) {
+			e.printStackTrace();
+			
+		}
+		}
+		
+		
 	}
+	
 
 
