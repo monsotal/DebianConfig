@@ -1,4 +1,4 @@
-package com.debian_config;
+package com.debian_config.Main;
 
 import java.io.FileWriter;
 import java.util.ArrayList;

@@ -1,1 +1,2 @@
-com\debian_config\Main.class
+com\debian_config\Main\Main.class
+test\java\UnitTest.class
