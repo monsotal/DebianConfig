@@ -36,7 +36,7 @@
 			<configuration>
 				<archive>
 					<manifest>
-						<mainClass>com.debian_config.Main</mainClass>
+						<mainClass>com.debian_config.Main.Main</mainClass>
 					</manifest>
 				</archive>
 			</configuration> 
