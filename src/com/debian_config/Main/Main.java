@@ -13,13 +13,9 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		
-		
 		System.out.println("--Welcome To Debian_Config tool--");
 		
-//This reads the input provided by user
-//using keyboard
-		
-		
+
 
 	    // Display menu graphics
 		
@@ -80,7 +76,9 @@ public class Main {
             	 break;
         	 
              case 3:
-            	 System.out.println("You picked Option 3");
+            	System.out.println("Please type a new hostname for your system"); 
+     			Scanner hostname = new Scanner(System.in);
+     			configureHostname(hostname.nextLine());
             	 break;
         	 
              case 4:
@@ -197,8 +195,6 @@ public class Main {
 	
 	
 	
-	
-	
 	public static void configureProxy() {
 		
 		try {
@@ -229,9 +225,35 @@ public class Main {
 			
 		}
 		}
+	
+	
+	
+	public static String configureHostname(String newhostname) {
 		
+		try {
+
+			
+			FileWriter hostnameinstance = new FileWriter("/etc/hostname");
+			hostnameinstance.write(newhostname);
+		
+			System.out.println("The new hostname " + newhostname + " has been successfully configured for your system"
+					+ "\nPlease reboot your system for these changes to take effect");
+			hostnameinstance.close();
+			return newhostname;
+
+			}
+
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+			
+		}
 		
 	}
+	
+	
+		
+}
 	
 
 
