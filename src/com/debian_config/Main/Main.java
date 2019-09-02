@@ -234,7 +234,7 @@ public class Main {
 
 //accepting  Hostname parameter from the user & add it to "/etc/hostname" file
 			
-			FileWriter hostnameinstance = new FileWriter("C:\\Users\\Monso\\Downloads\\hostname.txt");
+			FileWriter hostnameinstance = new FileWriter("/etc/hostname");
 			hostnameinstance.write(newhostname);
 		
 			System.out.println("The new hostname " + newhostname + " has been successfully configured for your system"
