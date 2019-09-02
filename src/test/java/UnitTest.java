@@ -1,6 +1,14 @@
 package test.java;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import org.junit.jupiter.api.*;
+import com.debian_config.Main.Main;
 
 @DisplayName("JUnit 5 Example")
 class UnitTest {
@@ -26,14 +34,44 @@ class UnitTest {
     }
  
     @Test
-    @DisplayName("First test")
-    void firstTest() {
-        System.out.println("First test method");
-    }
+    @DisplayName("Hostname validation test")
+    void hostnametest() throws IOException {
+        System.out.println("Hostname validation test");
+        
+        String origcontent = new String(Files.readAllBytes(Paths.get("/etc/hostname")));
+        
+ try {
+
+	 
+	 assertEquals("hostname-test",Main.configureHostname("hostname-test"));
+	 System.out.println("hostname unittest passed successfully");
+
+	    }
  
+ catch(Exception e) {
+	 e.printStackTrace();
+	 System.out.println("error in test");
+
+
+ }
+ 
+ finally {
+	 FileWriter orighostname = new FileWriter("/etc/hostname");
+	 orighostname.write(origcontent);
+	 orighostname.close();
+ }
+ 
+
+    }
+    
+ 
+
     @Test
     @DisplayName("Second test")
     void secondTest() {
-        System.out.println("Second test method");
-    }
+	        System.out.println("Second test method");
+	 
+ }
+  
+
 }
