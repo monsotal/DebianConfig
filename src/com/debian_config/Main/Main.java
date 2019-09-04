@@ -63,7 +63,7 @@ public class Main {
 		
 		//Checking if input appears in list, then use it in a switch-case
 	
-			 if(listcontainsnum) {
+			 if (listcontainsnum) {
 				
 				 switch (num)
 				 {
@@ -125,7 +125,7 @@ public class Main {
 		 }
 	
 
-		 catch(Exception e) {
+		 catch (Exception e) {
 
 			 System.out.println("Invalid Characters typed");
 			 getsUserInput();
