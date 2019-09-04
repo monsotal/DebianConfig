@@ -37,11 +37,14 @@ class UnitTest {
     @DisplayName("Hostname validation test")
     void hostnametest() throws IOException {
         System.out.println("Hostname validation test");
+
+// Saves the original content of "/etc/hostname" file before making changes    
         
         String origcontent = new String(Files.readAllBytes(Paths.get("/etc/hostname")));
         
  try {
 
+// verifies that method returned value(assuming being called with "hostname-test" argument) equals "hostname-test" 
 	 
 	 assertEquals("hostname-test",Main.configureHostname("hostname-test"));
 	 System.out.println("hostname unittest passed successfully");
@@ -55,6 +58,8 @@ class UnitTest {
 
  }
  
+ // cleanup the unit test by replacing "/etc/hostname" content with the original content
+
  finally {
 	 FileWriter orighostname = new FileWriter("/etc/hostname");
 	 orighostname.write(origcontent);
