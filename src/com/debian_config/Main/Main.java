@@ -236,6 +236,7 @@ public class Main {
 			
 			FileWriter hostnameinstance = new FileWriter("/etc/hostname");
 			hostnameinstance.write(newhostname);
+			
 		
 			System.out.println("The new hostname " + newhostname + " has been successfully configured for your system"
 					+ "\nPlease reboot your system for these changes to take effect");
