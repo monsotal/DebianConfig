@@ -7,11 +7,11 @@ pipeline {
             steps {
                 sh 'mvn --version'
             }
+        }
         stage('Build') {
             steps {
                 echo 'Building'
             }
         }
     }
-}
 }
