@@ -24,6 +24,12 @@ pipeline {
             }
         }
         
+        stage('Publish "Checkstyle" Code review results') {
+			steps {
+				build 'Publish_checkstyle_results'
+	}
+}
+        
           stage('Deploy') {
             steps {
                 echo 'Deploying'
