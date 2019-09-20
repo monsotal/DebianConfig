@@ -14,7 +14,7 @@ public class Main {
 		
 		
 		System.out.println("--Welcome To Debian_Config tool--");
-		
+		System.out.println("Hello");
 
 
 	    // Display menu graphics
