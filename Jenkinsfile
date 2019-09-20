@@ -7,6 +7,10 @@ pipeline {
     buildDiscarder(logRotator(daysToKeepStr: '14', numToKeepStr: '10'))
   }
 
+	triggers {
+  pollSCM '* * * * *'
+}
+
     stages {
         stage('Initialize Debian_Config_PIPELINE') {
             steps {
