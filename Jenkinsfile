@@ -21,9 +21,8 @@ pipeline {
             steps {
                 echo 'Building'
                 sh 'mvn clean install checkstyle:checkstyle'
-            }
-        
-        	post{
+                
+            post{
             	success{
                 
                 echo 'Now archiving .jar files'
@@ -31,11 +30,14 @@ pipeline {
             }
 
         }
+                
+        }
+        
+        	
 
-
-          stage('Deploy') {
-            steps {
-                echo 'Deploying'
+      stage('Deploy') {
+        steps {
+            echo 'Deploying'
             }
         }
     }
