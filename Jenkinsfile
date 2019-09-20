@@ -23,7 +23,7 @@ pipeline {
                 echo 'Building'
                 sh 'mvn clean install checkstyle:checkstyle'
         	}
-            
+        }
             post{
         		success{
                 
@@ -40,5 +40,4 @@ pipeline {
             }
         }
     }
-	}
 }
