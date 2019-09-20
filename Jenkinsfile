@@ -24,12 +24,16 @@ pipeline {
             }
         }
         
-        stage('Publish "Checkstyle" Code review results') {
-			steps {
-				build 'Publish_checkstyle_results'
-	}
-}
-        
+        post{
+            success{
+                
+                echo 'Now archiving .jar files'
+                archiveArtifacts artifacts : "**/*.jar"
+            }
+
+        }
+
+
           stage('Deploy') {
             steps {
                 echo 'Deploying'
