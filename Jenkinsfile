@@ -38,6 +38,7 @@ pipeline {
       stage('Deploy') {
         steps {
             echo 'Deploying'
+            echo "RESULT: ${currentBuild.result}"
             }
         }
     }
