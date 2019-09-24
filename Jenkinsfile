@@ -23,27 +23,17 @@ pipeline {
                 echo 'Building'
                 sh 'mvn clean install checkstyle:checkstyle'
         	}
-
         }
         
-        
-        try{
-            
+
         stage('Archiving artifacts') {
-        steps {
+        	steps {
         
         		echo 'Now archiving .jar files'
             	archiveArtifacts artifacts : "**/*.jar"
             	
-    		  }
+		  	}
 		}
-		}
-
-		catch(Exception e){
-			e.printStackTrace();
-		}
-
-
 
         	
       stage('Deploy') {
