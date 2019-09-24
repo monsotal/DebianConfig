@@ -26,21 +26,25 @@ pipeline {
 
         }
         
+        
+        try{
+            
         stage('Archiving artifacts') {
         steps {
         
-        		try{
         		echo 'Now archiving .jar files'
             	archiveArtifacts artifacts : "**/*.jar"
-            	}
+            	
+    		  }
+		}
 
-				catch(Exception e){
+
+		catch(Exception e){
 				e.printStackTrace();
 				}
             }
-        }
-          
-          
+
+
         	
       stage('Deploy') {
         steps {
@@ -49,5 +53,3 @@ pipeline {
 
             }
         }
-    }
-}
