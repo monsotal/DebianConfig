@@ -24,7 +24,7 @@ pipeline {
                 sh 'mvn clean install checkstyle:checkstyle'
         	}
 
-        
+        }
         
         stage('Archiving artifacts') {
         steps {
@@ -50,5 +50,4 @@ pipeline {
             }
         }
     }
-}
 }
