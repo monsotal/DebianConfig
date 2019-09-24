@@ -28,8 +28,17 @@ pipeline {
     		post{
     			success{
                 
-            		echo 'Now archiving .jar files'
+                try{
+                
+        		echo 'Now archiving .jar files'
             	archiveArtifacts artifacts : "**/*.jar"
+                
+            	}
+            
+				catch(Exception e){
+				e.printStackTrace();
+				}
+
         		}    
                 
     		}
@@ -38,7 +47,8 @@ pipeline {
       stage('Deploy') {
         steps {
             echo 'Deploying'
-            echo "RESULT: ${currentBuild.result}"
+           build job : ''
+
             }
         }
     }
