@@ -24,7 +24,7 @@ pipeline {
                 sh 'mvn clean install checkstyle:checkstyle'
                 
         		echo 'Now archiving .jar files'
-            	archiveArtifacts artifacts : "*f*/*.jar"
+            	archiveArtifacts artifacts : "**/*.jar"
         	}
         }
         
