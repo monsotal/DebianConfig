@@ -33,6 +33,7 @@ pipeline {
                 sh 'mvn clean install checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs'
                 
                 recordIssues enabledForFailure: true, tool: checkStyle()
+                recordIssues enabledForFailure: true, tool: spotBugs()
                 recordIssues enabledForFailure: true, tool: cpd(pattern: '**/target/cpd.xml')
                 recordIssues enabledForFailure: true, tool: pmdParser(pattern: '**/target/pmd.xml')
                 
