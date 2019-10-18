@@ -30,7 +30,11 @@ pipeline {
             // run maven goals, then archiving artifacts: the executable jar file.
             
                 echo 'Building'
-                sh 'mvn clean install'
+                sh 'mvn clean install checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs'
+                
+                recordIssues enabledForFailure: true, tool: checkStyle()
+                recordIssues enabledForFailure: true, tool: cpd(pattern: '**/target/cpd.xml')
+                recordIssues enabledForFailure: true, tool: pmdParser(pattern: '**/target/pmd.xml')
                 
         		echo 'Now archiving .jar files'
             	archiveArtifacts artifacts : "**/*.jar"
