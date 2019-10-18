@@ -30,7 +30,7 @@ pipeline {
             // run maven goals, then archiving artifacts: the executable jar file.
             
                 echo 'Building'
-                sh 'mvn clean install checkstyle:checkstyle'
+                sh 'mvn clean install'
                 
         		echo 'Now archiving .jar files'
             	archiveArtifacts artifacts : "**/*.jar"
