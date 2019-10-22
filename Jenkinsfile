@@ -30,19 +30,23 @@ pipeline {
             // run maven goals, then archiving artifacts: the executable jar file.
             
                 echo 'Building'
-                sh 'mvn clean install checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs'
-                
-                recordIssues enabledForFailure: true, tool: checkStyle()
-                recordIssues enabledForFailure: true, tool: spotBugs()
-                recordIssues enabledForFailure: true, tool: cpd(pattern: '**/target/cpd.xml')
-                recordIssues enabledForFailure: true, tool: pmdParser(pattern: '**/target/pmd.xml')
-                
+                sh 'mvn clean install'
+
         		echo 'Now archiving .jar files'
             	archiveArtifacts artifacts : "**/*.jar"
         	}
         }
         
+	   stage('Source_Code_Analysis') {
+    		steps {
+    	
+    	// triggers 'Source_Code_Analysis' job, to display code analysis
+    	
+            echo 'Source_Code_Analysis'
+           build job : 'Source_Code_Analysis'
 
+            }
+        }
        
       stage('Deploy') {
     	steps {
