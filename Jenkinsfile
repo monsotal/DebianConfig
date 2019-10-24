@@ -42,7 +42,7 @@ pipeline {
     	
     	// triggers 'Source_Code_Analysis' job, to display code analysis
     	
-            echo 'Source_Code_Analysis'
+            echo 'collecting&publishing source code analysis issues, using "checkstyle/findbugs/cpd/PMD plugins"'
            build job : 'Source_Code_Analysis'
 
             }
