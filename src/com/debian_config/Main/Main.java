@@ -23,7 +23,7 @@ public class Main {
 	    System.out.println("========================================================================");
 	    System.out.println("|                         Options:                                     |");
 	    System.out.println("|1.set an IP address to an interface                                   |");
-	    System.out.println("|2. Enable SSH 'root' user login                                       |");
+	    System.out.println("|2. Enable SSH login for a 'root' user                                 |");
 	    System.out.println("|3. Change machine hostname                                            |");
 	    System.out.println("|4. Set proxy                                                          |");
 	    System.out.println("|5. Updates the system using apt-get update..                          |");
