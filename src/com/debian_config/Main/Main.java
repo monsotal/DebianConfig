@@ -232,7 +232,7 @@ public class Main {
 
 //accepting  Hostname parameter from the user & add it to "/etc/hostname" file
 			
-			FileWriter hostnameinstance = new FileWriter("/etc/hostname");
+			FileWriter hostnameinstance = new FileWriter("/etc/hostname",true);
 			hostnameinstance.write(newhostname);
 			
 		
