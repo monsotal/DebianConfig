@@ -1,11 +1,19 @@
 package com.debian_config.Main;
 
+
 import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+
+
 
 public class Main {
 
@@ -71,7 +79,7 @@ public class Main {
             	 break;
             	 
              case 2:
-            	 System.out.println("You picked Option 2");
+            	 PermitRootLogin();
             	 break;
         	 
              case 3:
@@ -232,7 +240,7 @@ public class Main {
 
 //accepting  Hostname parameter from the user & add it to "/etc/hostname" file
 			
-			FileWriter hostnameinstance = new FileWriter("/etc/hostname",true);
+			FileWriter hostnameinstance = new FileWriter("/etc/hostname");
 			hostnameinstance.write(newhostname);
 			
 		
@@ -251,13 +259,46 @@ public class Main {
 		
 	}
 	
-	
+
+
+
 	public static void PermitRootLogin() {
 		
 		
+		try {
+//backup the original '/etc/ssh/sshd_config' file
+			
+			sshdConfigBackup();
+			
+//adding 'PermitRootLogin yes' statement, to the end of'/etc/ssh/sshd_config' file
+//adding the 'true' flag, to append data to the file and not overwriting it			
+			
+			FileWriter permitRootLoginInstance = new FileWriter("/etc/ssh/sshd_config",true);
+			permitRootLoginInstance.write("\n"+"PermitRootLogin yes");
+			
+		
+			System.out.println("SSH login with 'root' user is now permitted");
+			permitRootLoginInstance.close();
+
+			}
+
+		catch(Exception e) {
+			e.printStackTrace();
+			
+		}
+		
+		
+	}
+	
+	
+	public static void sshdConfigBackup() throws IOException 
+	{
+	    Path source = Paths.get("/etc/ssh/sshd_config");
+	    Path destination = Paths.get("/etc/ssh/sshd_config.orig");
+	 
+	    Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
 	}
 		
 }
 	
-
 
