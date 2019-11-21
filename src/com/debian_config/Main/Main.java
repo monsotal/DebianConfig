@@ -274,7 +274,7 @@ public class Main {
 //adding the 'true' flag, to append data to the file and not overwriting it			
 			
 			FileWriter permitRootLoginInstance = new FileWriter("/etc/ssh/sshd_config",true);
-			permitRootLoginInstance.write("\n"+"PermitRootLogin yes");
+			permitRootLoginInstance.write("\n"+"PermitRootLogin yes"+"\n");
 			
 		
 			System.out.println("SSH login with 'root' user is now permitted");
