@@ -284,8 +284,9 @@ public class Main {
 			
 //restart SSH server			
 			
-			String sshrestartcmd = "/etc/init.d/ssh restart";  
-			 ProcessBuilder pb = new ProcessBuilder(sshrestartcmd);
+
+			 ProcessBuilder pb = new ProcessBuilder();
+			 pb.command("/etc/init.d/ssh restart");
 			 pb.start();
 
 			System.out.println("SSH login with 'root' user is now permitted");
