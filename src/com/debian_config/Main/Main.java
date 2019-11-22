@@ -287,9 +287,29 @@ public class Main {
 
 			 ProcessBuilder pb = new ProcessBuilder();
 			 pb.command("bash", "-c", "service ssh restart");
-			 pb.start();
 
-			System.out.println("SSH login with 'root' user is now permitted");
+			 Process process = pb.start();
+
+				StringBuilder output = new StringBuilder();
+
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(process.getInputStream()));
+
+				String line;
+				while ((line = reader.readLine()) != null) {
+					output.append(line + "\n");
+				}
+
+				int exitVal = process.waitFor();
+				if (exitVal == 0) {
+					System.out.println("Success!");
+					System.out.println(output);
+					System.exit(0);
+				} else {
+					//abnormal...
+				}
+
+				System.out.println("SSH login with 'root' user is now permitted");
 			
 			}
 
