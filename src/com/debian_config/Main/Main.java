@@ -1,8 +1,10 @@
 package com.debian_config.Main;
 
 
+import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -282,9 +284,10 @@ public class Main {
 			
 //restart SSH server			
 			
-			ProcessBuilder processBuilder = new ProcessBuilder();
-			processBuilder.command("bash", "-c","/etc/init.d/ssh restart");
-			
+			String sshrestartcmd = "/etc/init.d/ssh restart";  
+			 ProcessBuilder pb = new ProcessBuilder(sshrestartcmd);
+			 pb.start();
+
 			System.out.println("SSH login with 'root' user is now permitted");
 			
 			}
