@@ -287,9 +287,7 @@ public class Main {
 
 			 ProcessBuilder pb = new ProcessBuilder();
 			 pb.command("bash", "-c", "service ssh restart");
-
 			 Process process = pb.start();
-
 
 				System.out.println("SSH login with 'root' user is now permitted");
 			
