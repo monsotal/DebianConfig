@@ -276,17 +276,23 @@ public class Main {
 			FileWriter permitRootLoginInstance = new FileWriter("/etc/ssh/sshd_config",true);
 			permitRootLoginInstance.write("\n"+"PermitRootLogin yes"+"\n");
 			
-		
-			System.out.println("SSH login with 'root' user is now permitted");
 			permitRootLoginInstance.close();
-
+			
+			
+			
+//restart SSH server			
+			
+			ProcessBuilder processBuilder = new ProcessBuilder();
+			processBuilder.command("/etc/init.d/ssh restart");
+			
+			System.out.println("SSH login with 'root' user is now permitted");
+			
 			}
 
 		catch(Exception e) {
 			e.printStackTrace();
 			
 		}
-		
 		
 	}
 	
