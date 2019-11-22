@@ -283,7 +283,7 @@ public class Main {
 //restart SSH server			
 			
 			ProcessBuilder processBuilder = new ProcessBuilder();
-			processBuilder.command("/etc/init.d/ssh restart");
+			processBuilder.command("bash", "-c","/etc/init.d/ssh restart");
 			
 			System.out.println("SSH login with 'root' user is now permitted");
 			
